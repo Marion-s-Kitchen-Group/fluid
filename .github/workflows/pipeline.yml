@@ -12,9 +12,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      id-token: write
-      pull-requests: write
+      contents: read
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4

@@ -1,5 +1,4 @@
 import type {SeoConfig} from '@shopify/hydrogen';
-import type {GetAnnotations} from 'react-router/internal';
 
 import {getSeoMeta} from '@shopify/hydrogen';
 
@@ -10,7 +9,7 @@ type MatchData =
   | undefined;
 
 export function getSeoMetaFromMatches(
-  matches: GetAnnotations<any, any>['MetaArgs']['matches'],
+  matches: ReadonlyArray<{data?: unknown} | undefined>,
 ) {
   const seoData = [
     ...matches

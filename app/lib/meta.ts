@@ -1,12 +1,13 @@
 // https://gist.github.com/ryanflorence/ec1849c6d690cfbffcb408ecd633e069
 
 import type {MetaDescriptor} from 'react-router';
-import type {GetAnnotations} from 'react-router/internal';
 
 type MetaDescriptors = MetaDescriptor[];
 
 export function mergeRouteModuleMeta<
-  TMetaArgs extends GetAnnotations<any, any>['MetaArgs'],
+  TMetaArgs extends {
+    matches: ReadonlyArray<{meta?: MetaDescriptors} | undefined>;
+  },
 >(
   leafMetaFn: (args: TMetaArgs) => MetaDescriptors,
 ): (args: TMetaArgs) => MetaDescriptors {
